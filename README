@@ -1,3 +1,8 @@
+I modified ProWGen so that it works on my system. I fixed some issues about C++ deprecation and g++ compilation.
+
+
+=================
+
 This file contains a brief explanation of how to use ProWGen (Proxy Workload Generator)
 developed at the University of Saskatchewan. The information contained in this file is 
 organized as follows:
