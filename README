@@ -1,0 +1,71 @@
+This file contains a brief explanation of how to use ProWGen (Proxy Workload Generator)
+developed at the University of Saskatchewan. The information contained in this file is 
+organized as follows:
+
+1. About ProWGen
+2. The files necessary to run ProWGen
+3. How to run ProWGen
+4. Where to find more information
+
+
+1. About ProWGen
+=================
+ProWGen is a synthetic proxy workload generator developed by Mudashiru Busari at the 
+Department of Computer Science, University of Saskatchewan, for his M.Sc thesis research,
+under the supervision of Professor Carey Williamson. The main objective behind ProWGen is 
+to allow the synthesis of proxy workloads with flexibility for evaluation of caching 
+strategies.
+
+
+2. The files necessary to run ProWGen
+=====================================
+The following files are required to run this program:
+
+ main.cc
+ stack.h
+ stack.cc
+ request.h
+ request.cc
+ stream.h
+ stream.cc
+ Makefile
+ 
+
+3. How to run ProWGen
+======================
+ProWGen requires some configuration parameters to run. For ease of understanding, you
+can edit the file main.cc to see what these parameters represent and explanation of each
+of them. The parameters actually have some values hard-coded in main.cc but you can provide
+a separate configuration file and change main.cc to read from the file instead.
+
+To make the executable, just type "make" after unzipping the files and making your changes.
+You may need to edit the Makefile if need be. If there is no error, the executable file 
+produced is "ProWGen" and can be run directly by typing ProWGen at the prompt. While 
+executing, a progress status is displayed. At the end, two files are generated unless the 
+program has been modified. The first file is the request stream file which contains the 
+workload. This file is a 2-column file of fileid followed by file size. Note that ProWGen
+does not model file size changes or time of day. The second file produced is a 
+summary of the unique files in the workload. This is also a 2-column file of popularity and
+file size of the unique files in the workload. The essence of the second file is to eliminate
+the need to analyze the request file for the popularity or file size of each unique file. 
+Hence, the first column of the second file is the popularities of the distinct files in the
+workload, while the second column is the file size of the unique files.
+
+Note that the specified number of requests to generate in main.cc is currently 10,000.
+For realistic proxy workload modeling, we suggest generating request streams
+with 1 to 10 million requests. This can take some time (5-10 minutes) with ProWGen,
+due to some of the intermediate data sorting steps required in some of the
+workload generation algorithms. The short 10,000 trace example should complete
+almost instantaneously (less than 10 seconds), allowing you to familiarize
+yourself with ProWGen, its output file formats, and its configuration options.
+Happy workload modeling!
+
+4. Where to find more information
+==================================
+If you need more information about the underlying models and how they are incorporated 
+into ProWGen, get a copy of the M.Sc. thesis from the Department of Computer Science,
+University of Saskatchewan:
+    Simulation Evaluation of Web Caching Hierarchies
+    by Mudashiru Busari, June 2000,
+or contact Professor Carey Williamson (carey@cs.usask.ca).
+There should be a postscript version of the thesis online very soon. 
